@@ -7,8 +7,8 @@
 
 include:
   - board: eknrf
-    shield: corne_left nice_view
+    shield: ekgo_left nice_view
     snippet: zmk-usb-logging
   - board: eknrf
-    shield: corne_right nice_view
+    shield: ekgo_right nice_view
     snippet: zmk-usb-logging
