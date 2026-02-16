@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 #include <zephyr/dt-bindings/input/input-event-codes.h>
-#include "ekgo.dtsi"
+#include "ekgo_trackball.dtsi"
 
 &ekgo_transform {
     col-offset = <6>;
