@@ -6,7 +6,7 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <input/processors.dtsi>
-#include "ekgo_trackball-layouts.dtsi"
+#include "ekgo-layouts.dtsi"
 
 &ekgo_full_layout {
     transform = <&ekgo_transform>;
