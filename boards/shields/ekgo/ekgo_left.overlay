@@ -40,10 +40,6 @@
     status = "disabled";
 };
 
-&glidepoint_listener {
-    status = "okay";
-};
-
 nice_view_spi: &spi0 {
     status = "okay";
     pinctrl-0 = <&spi0_default>;
