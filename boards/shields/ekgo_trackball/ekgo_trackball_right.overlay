@@ -79,7 +79,7 @@ nice_view_spi: &spi0 {
 
 #include <input/processors/xyz.dtsi>
 //#include <input/processors/report_rate_limit.dtsi>
-#include <behaviors/rate_limit.dtsi>
+//#include <behaviors/rate_limit.dtsi>
 
 // Overrides for the input-split child node
 &trackball_peripheral_split {
