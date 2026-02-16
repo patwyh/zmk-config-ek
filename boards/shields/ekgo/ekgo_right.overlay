@@ -42,13 +42,11 @@
     };
 };
 
-
-
 &pro_micro_i2c {
     status = "disabled";
 };
 
-&spi0 {
+nice_view_spi: &spi0 {
     status = "okay";
     compatible = "nordic,nrf-spim";
     pinctrl-0 = <&spi0_default>;
@@ -56,12 +54,6 @@
     pinctrl-names = "default", "sleep";
     cs-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>, // nice view
                <&gpio1 2 GPIO_ACTIVE_LOW>; // trackball
-    
-    nice_view_spi: nice_view_spi@0 {
-        status = "okay";
-        compatible = "nordic,nrf-spim"; // Verify if this should be the display driver instead
-        reg = <0>;
-    };
 
     glidepoint: glidepoint@0 {
         compatible = "cirque,pinnacle";
@@ -78,7 +70,6 @@
         /* tap-enable; scroll-enable; */  /* Enable as desired */
     };
 };
-
 
 &glidepoint_split {
     device = <&glidepoint>;
