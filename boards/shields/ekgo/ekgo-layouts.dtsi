@@ -3,7 +3,7 @@
 #include <physical_layouts.dtsi>
 
 &layouts_foostan_corne_position_map {
-    joric_ekgo_full_posmap: full {
+    ekgo_full_posmap: full {
         physical-layout = <&ekgo_full_layout>;
         positions
             = < 0  1  2  3  4  5  6        7  8  9 10 11 12 13>
