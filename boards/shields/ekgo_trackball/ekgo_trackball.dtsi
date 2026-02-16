@@ -87,6 +87,7 @@
     };
 };
 
+#include <input/processors/xyz.dtsi>
 / {
     //left hand trackball
     split_inputs {
