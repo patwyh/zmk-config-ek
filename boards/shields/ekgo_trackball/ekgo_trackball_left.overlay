@@ -47,7 +47,7 @@ nice_view_spi: &spi0 {
     cs-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>, // nice view
                <&gpio1 2 GPIO_ACTIVE_LOW>; // trackball
 
-    trackball_central: trackball_central@0 {
+    trackball_central: trackball_central@1 {
         status = "okay";
         compatible = "pixart,pmw3610-efogtech";
         reg = <0>;
