@@ -10,11 +10,11 @@ include:
     shield: ekgo_left nice_view
     snippet: zmk-usb-logging
   - board: eknrf
-    shield: ekgo_right nice_view
+    shield: ekgo_right
     snippet: zmk-usb-logging
 
   - board: eknrf
-    shield: ekgo_trackball_left nice_view
+    shield: ekgo_trackball_left
     snippet: zmk-usb-logging
   - board: eknrf
     shield: ekgo_trackball_right nice_view
