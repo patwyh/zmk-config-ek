@@ -49,7 +49,6 @@ nice_view_spi: &spi0 {
     pinctrl-0 = <&spi0_default>;
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
-    reg = <0>;
     cs-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>, // nice view
                <&gpio1 2 GPIO_ACTIVE_LOW>; // trackball
 
@@ -70,7 +69,7 @@ nice_view_spi: &spi0 {
         /* keep the sensor awake while ZMK activity state is ACTIVE,
             fallback to normal downshift mode after ZMK goes into IDLE / SLEEP mode.
             thus, the sensor would be a `wakeup-source` */     
-        force-awake-4ms-mode;
+        //force-awake-4ms-mode;
         /* while force-awake is acitvated, enable this mode to force sampling per 
            4ms, where the default sampling rate is 8ms. */
         /* NOTE: apply this mode if you need 250Hz with direct USB connection. */
@@ -85,5 +84,5 @@ nice_view_spi: &spi0 {
 // Overrides for the input-split child node
 &trackball_peripheral_split {
     device = <&trackball_peripheral>;
-    input-processors = <&zip_xy_to_scroll_mapper>;
+    //input-processors = <&zip_xy_to_scroll_mapper>;
 };
