@@ -44,13 +44,13 @@ nice_view_spi: &spi0 {
     pinctrl-0 = <&spi0_default>;
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
-    reg = <0>;
     cs-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>, // nice view
                <&gpio1 2 GPIO_ACTIVE_LOW>; // trackball
 
     trackball_central: trackball_central@1 {
         status = "okay";
         compatible = "pixart,pmw3610-efogtech";
+        reg = <1>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         cpi = <800>;
@@ -60,7 +60,7 @@ nice_view_spi: &spi0 {
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
-        force-high-performance;
+        //force-high-performance;
         force-awake;
         /* keep the sensor awake while ZMK activity state is ACTIVE,
             fallback to normal downshift mode after ZMK goes into IDLE / SLEEP mode.
