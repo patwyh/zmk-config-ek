@@ -19,6 +19,7 @@ include:
   - board: eknrf
     shield: ekgo_trackball_right nice_view
     snippet: zmk-usb-logging
-    
+
   - board: eknrf
     shield: settings_reset
+    snippet: zmk-usb-logging
