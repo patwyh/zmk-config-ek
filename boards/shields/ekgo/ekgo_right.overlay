@@ -39,7 +39,7 @@
     };
 };
 
-&pro_micro_i2c {
+&i2c0 {
     status = "disabled";
 };
 
@@ -49,19 +49,17 @@
     pinctrl-0 = <&spi0_default>;
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>, // nice view
-               <&gpio1 2 GPIO_ACTIVE_LOW>; // trackball
-
+    cs-gpios = <&gpio1 2 GPIO_ACTIVE_LOW>; // trackball
     glidepoint: glidepoint@0 {
         compatible = "cirque,pinnacle";
-        reg = <1>;
+        reg = <0>;
         spi-max-frequency = <1000000>;  /* 1 MHz safe starting point */
         status = "okay";
-        data-ready-gpios = <&gpio0 7 GPIO_ACTIVE_HIGH>; 
+        data-ready-gpios = <&gpio0 7 GPIO_ACTIVE_HIGH>;
         primary-tap-enable;
-        sensitivity = "1x";  /* Optional: adjust tracking sensitivity */
+        sensitivity = "2x";  /* Optional: adjust tracking sensitivity */
         invert-x;
-        sleep-mode-enable;
+        //sleep-mode-enable;
         //swap-90; //<--error
         /* no-taps; */             /* Optional: disable tap gestures if undesired */
         /* tap-enable; scroll-enable; */  /* Enable as desired */
