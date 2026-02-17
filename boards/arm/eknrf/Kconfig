@@ -1,3 +1,9 @@
 # Copyright (c) 2022 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
+# For 0.3, we need to enable DCDC mode for the nrf52840 to get the best battery life. For 0.4, this is not required and may cause issues on some boards, so we only enable it for 0.4.
+config BOARD_ENABLE_DCDC
+    bool "Enable DCDC mode"
+    select SOC_DCDC_NRF52X
+    default y
+    depends on (BOARD_ERNRF)
