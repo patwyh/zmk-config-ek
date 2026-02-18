@@ -66,6 +66,8 @@ nice_view_spi: &spi0 {
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
         force-awake;
+        /* KEY SETTING: 2048 corresponds to SPI_HALF_DUPLEX */
+        duplex = <2048>;
         /* keep the sensor awake while ZMK activity state is ACTIVE,
             fallback to normal downshift mode after ZMK goes into IDLE / SLEEP mode.
             thus, the sensor would be a `wakeup-source` */     
@@ -74,6 +76,15 @@ nice_view_spi: &spi0 {
            4ms, where the default sampling rate is 8ms. */
         /* NOTE: apply this mode if you need 250Hz with direct USB connection. */
     };
+};
+
+
+#include <input/processors/report_rate_limit.dtsi>
+&trackball_peripheral_split {
+    device = <&trackball_peripheral>;  
+    /* append XY-to-Z compressor on transmitting side */
+    //input-processors = <&zip_xyz>,<&zip_report_rate_limit 16>;
+    input-processors = <&zip_report_rate_limit 16>;
 };
 
 
