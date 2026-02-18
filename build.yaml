@@ -17,7 +17,7 @@ include:
     shield: ekgo_trackball_left nice_view
     snippet: zmk-usb-logging
   - board: eknrf
-    shield: ekgo_trackball_right
+    shield: ekgo_trackball_right nice_view
     snippet: zmk-usb-logging
 
   - board: eknrf
