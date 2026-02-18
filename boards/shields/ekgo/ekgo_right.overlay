@@ -68,8 +68,9 @@
 
 /* Add the compressor (zip_xyz) on peripheral(s) overlay */
 #include <input/processors/xyz.dtsi>
+#include <input/processors/report_rate_limit.dtsi>
 &glidepoint_split {
     device = <&glidepoint>;  
     /* append XY-to-Z compressor on transmitting side */
-    input-processors = <&zip_xyz>;
+    input-processors = <&zip_xyz>,<&zip_report_rate_limit 16>;
 };
