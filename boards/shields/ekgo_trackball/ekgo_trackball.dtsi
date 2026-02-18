@@ -106,9 +106,9 @@
         device = <&trackball_peripheral_split>;
     };
 
-    //right hand trackball
-    trackball_central_listener: trackball_central_listener {
-        compatible = "zmk,input-listener";
-        status = "disabled";
-    };
+    // //right hand trackball
+    // trackball_central_listener: trackball_central_listener {
+    //     compatible = "zmk,input-listener";
+    //     status = "disabled";
+    // };
 };
