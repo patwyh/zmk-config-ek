@@ -52,40 +52,40 @@ nice_view_spi: &spi0 {
     cs-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>, // nice view
                <&gpio1 2 GPIO_ACTIVE_LOW>; // trackball
 
-    trackball_peripheral: trackball_peripheral@1 {
-        status = "okay";
-        compatible = "pixart,pmw3610-alt";
-        reg = <1>;
-        spi-max-frequency = <2000000>;
-        irq-gpios = <&gpio0 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        cpi = <700>;
-        // swap-xy; /* optional */
-        // invert-x; /* optional */
-        // invert-y; /* optional */
-        evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_X>;
-        y-input-code = <INPUT_REL_Y>;
-        force-awake;
-        /* KEY SETTING: 2048 corresponds to SPI_HALF_DUPLEX */
-        //duplex = <2048>;
-        /* keep the sensor awake while ZMK activity state is ACTIVE,
-            fallback to normal downshift mode after ZMK goes into IDLE / SLEEP mode.
-            thus, the sensor would be a `wakeup-source` */     
-        //force-awake-4ms-mode;
-        /* while force-awake is acitvated, enable this mode to force sampling per 
-           4ms, where the default sampling rate is 8ms. */
-        /* NOTE: apply this mode if you need 250Hz with direct USB connection. */
-    };
+    // trackball_peripheral: trackball_peripheral@1 {
+    //     status = "okay";
+    //     compatible = "pixart,pmw3610-alt";
+    //     reg = <1>;
+    //     spi-max-frequency = <2000000>;
+    //     irq-gpios = <&gpio0 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    //     cpi = <700>;
+    //     // swap-xy; /* optional */
+    //     // invert-x; /* optional */
+    //     // invert-y; /* optional */
+    //     evt-type = <INPUT_EV_REL>;
+    //     x-input-code = <INPUT_REL_X>;
+    //     y-input-code = <INPUT_REL_Y>;
+    //     force-awake;
+    //     /* KEY SETTING: 2048 corresponds to SPI_HALF_DUPLEX */
+    //     //duplex = <2048>;
+    //     /* keep the sensor awake while ZMK activity state is ACTIVE,
+    //         fallback to normal downshift mode after ZMK goes into IDLE / SLEEP mode.
+    //         thus, the sensor would be a `wakeup-source` */     
+    //     //force-awake-4ms-mode;
+    //     /* while force-awake is acitvated, enable this mode to force sampling per 
+    //        4ms, where the default sampling rate is 8ms. */
+    //     /* NOTE: apply this mode if you need 250Hz with direct USB connection. */
+    // };
 };
 
 
-#include <input/processors/report_rate_limit.dtsi>
-&trackball_peripheral_split {
-    device = <&trackball_peripheral>;  
-    /* append XY-to-Z compressor on transmitting side */
-    //input-processors = <&zip_xyz>,<&zip_report_rate_limit 16>;
-    input-processors = <&zip_report_rate_limit 16>;
-};
+// #include <input/processors/report_rate_limit.dtsi>
+// &trackball_peripheral_split {
+//     device = <&trackball_peripheral>;  
+//     /* append XY-to-Z compressor on transmitting side */
+//     //input-processors = <&zip_xyz>,<&zip_report_rate_limit 16>;
+//     input-processors = <&zip_report_rate_limit 16>;
+// };
 
 
 //#include <input/processors/xyz.dtsi>
