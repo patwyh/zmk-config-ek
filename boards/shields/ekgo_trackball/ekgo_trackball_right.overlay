@@ -65,7 +65,7 @@ nice_view_spi: &spi0 {
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
-        // force-awake;
+        force-awake;
         /* KEY SETTING: 2048 corresponds to SPI_HALF_DUPLEX */
         //duplex = <2048>;
         /* keep the sensor awake while ZMK activity state is ACTIVE,
@@ -84,7 +84,7 @@ nice_view_spi: &spi0 {
     device = <&trackball_peripheral>;  
     /* append XY-to-Z compressor on transmitting side */
     //input-processors = <&zip_xyz>,<&zip_report_rate_limit 16>;
-    input-processors = <&zip_report_rate_limit 16>;
+    //input-processors = <&zip_report_rate_limit 16>;
 };
 
 
