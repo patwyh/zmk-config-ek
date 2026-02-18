@@ -57,7 +57,7 @@
         status = "okay";
         data-ready-gpios = <&gpio0 7 GPIO_ACTIVE_HIGH>;
         primary-tap-enable;
-        sensitivity = "2x";  /* Optional: adjust tracking sensitivity */
+        sensitivity = "1x";  /* Optional: adjust tracking sensitivity */
         invert-x;
         //sleep-mode-enable;
         //swap-90; //<--error
@@ -66,6 +66,10 @@
     };
 };
 
+/* Add the compressor (zip_xyz) on peripheral(s) overlay */
+#include <input/processors/xyz.dtsi>
 &glidepoint_split {
-    device = <&glidepoint>;
+    device = <&glidepoint>;  
+    /* append XY-to-Z compressor on transmitting side */
+    input-processors = <&zip_xyz>;
 };
