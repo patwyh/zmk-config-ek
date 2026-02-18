@@ -56,9 +56,6 @@ nice_view_spi: &spi0 {
 //#include <input/processors/xyz.dtsi>
 &glidepoint_listener {
     status = "okay";
-    compatible = "zmk,input-listener";
-    device = <&glidepoint_split>;
-
     /* preppend Z-to-XY processor on receiving side */
    // input-processors = <&zip_zxy>;//, <&zip_report_rate_limit 8>;
     /* NOTE: &zip_report_rate_limit is avaliable at https://github.com/badjeff/zmk-input-processor-report-rate-limit */
