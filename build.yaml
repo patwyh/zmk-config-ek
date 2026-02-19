@@ -6,18 +6,25 @@
 # `artifact-name` to assign a name to distinguish build outputs from each other:
 
 include:
-  - board: eknrf
-    shield: ekgo_left nice_view
-    snippet: zmk-usb-logging
-  - board: eknrf
-    shield: ekgo_right nice_view
-    snippet: zmk-usb-logging
+  # - board: eknrf
+  #   shield: ekgo_left nice_view
+  #   snippet: zmk-usb-logging
+  # - board: eknrf
+  #   shield: ekgo_right nice_view
+  #   snippet: zmk-usb-logging
+
+  # - board: eknrf 
+  #   shield: ekgo_trackball_left nice_view
+  #   snippet: zmk-usb-logging
+  # - board: eknrf
+  #   shield: ekgo_trackball_right nice_view
+  #   snippet: zmk-usb-logging
 
   - board: eknrf 
-    shield: ekgo_trackball_left nice_view
+    shield: ekgo_tb_left nice_view
     snippet: zmk-usb-logging
   - board: eknrf
-    shield: ekgo_trackball_right nice_view
+    shield: ekgo_tb_right nice_view
     snippet: zmk-usb-logging
 
   - board: eknrf

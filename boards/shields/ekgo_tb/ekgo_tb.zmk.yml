@@ -1,0 +1,14 @@
+file_format: "1"
+id: ekgo
+name: EkgoTB
+type: shield
+url: https://github.com/tb
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
+  - studio
+siblings:
+  - ekgo_left
+  - ekgo_right

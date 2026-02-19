@@ -1,0 +1,29 @@
+
+if SHIELD_EKGO_TB_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Ekgo TB"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
+    default y
+
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
+    default y
+    
+endif
+
+if SHIELD_EKGO_TB_LEFT || SHIELD_EKGO_TB_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_POINTING
+    default y
+
+config SPI
+    default y
+
+endif
