@@ -94,9 +94,9 @@
         #address-cells = <1>;
         #size-cells = <0>;
 
-        trackball_peripheral_split: trackball_peripheral_split@0 {
+        trackball_peripheral_split: trackball_peripheral_split@1 {
             compatible = "zmk,input-split";
-            reg = <0>;
+            reg = <1>;
         };
     };
 
