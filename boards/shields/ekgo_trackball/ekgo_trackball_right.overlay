@@ -84,7 +84,7 @@ nice_view_spi: &spi0 {
     device = <&trackball_peripheral>;  
     /* append XY-to-Z compressor on transmitting side */
     //input-processors = <&zip_xyz>,<&zip_report_rate_limit 16>;
-    //input-processors = <&zip_report_rate_limit 16>;
+    input-processors = <&zip_report_rate_limit 16>;
 };
 
 
