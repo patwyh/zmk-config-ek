@@ -21,10 +21,10 @@ include:
   #   snippet: zmk-usb-logging
 
   - board: eknrf 
-    shield: ekgo_tb_left nice_view
+    shield: ekgo_tb_left
     snippet: zmk-usb-logging
   - board: eknrf
-    shield: ekgo_tb_right nice_view
+    shield: ekgo_tb_right
     snippet: zmk-usb-logging
 
   - board: eknrf
