@@ -68,15 +68,6 @@ nice_view_spi: &spi0 {
     // };
 };
 
-/ {
-    /* This "relay" picks up the trackball data sent from the right side */
-    trackball_peripheral_listener: trackball_peripheral_listener {
-        compatible = "zmk,input-listener";
-        device = <&peripheral_input_device>; // This is a virtual device for split input
-    };
-};
-
-
 // Overrides for the input listener node
 &trackball_peripheral_listener {
     status = "okay";
