@@ -85,10 +85,7 @@
 			, <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
     };
-};
 
-#include <input/processors/xyz.dtsi>
-/ {
     //left hand trackball
     split_inputs {
         #address-cells = <1>;

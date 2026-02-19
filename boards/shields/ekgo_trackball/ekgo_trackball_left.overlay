@@ -71,6 +71,6 @@ nice_view_spi: &spi0 {
 // Overrides for the input listener node
 &trackball_peripheral_listener {
     status = "okay";
-    device = <&trackball_peripheral_split>;
+    //device = <&trackball_peripheral_split>;
     //input-processors = <&zip_ble_report_rate_limit>;
 };
