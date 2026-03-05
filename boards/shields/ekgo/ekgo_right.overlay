@@ -24,12 +24,29 @@
 &pinctrl {
     spi0_default: spi0_default {
         group1 {
+            psels = <NRF_PSEL(SPIM_SCK,  0, 1)>,  
+                    <NRF_PSEL(SPIM_MOSI, 0, 0)>,
+                    <NRF_PSEL(SPIM_MISO, 0, 0)>; 
+        };
+    };
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK,  0, 1)>,  
+                    <NRF_PSEL(SPIM_MOSI, 0, 0)>,
+                    <NRF_PSEL(SPIM_MISO, 0, 0)>; 
+            low-power-enable;
+        };
+    };
+
+    spi1_default: spi1_default {
+        group1 {
             psels = <NRF_PSEL(SPIM_SCK,  0, 12)>,
                     <NRF_PSEL(SPIM_MOSI, 0, 26)>,
                     <NRF_PSEL(SPIM_MISO, 0, 5)>; 
         };
     };
-    spi0_sleep: spi0_sleep {
+
+    spi1_sleep: spi1_sleep {
         group1 {
             psels = <NRF_PSEL(SPIM_SCK,  0, 12)>,  
                     <NRF_PSEL(SPIM_MOSI, 0, 26)>,
@@ -41,6 +58,46 @@
 
 &i2c0 {
     status = "disabled";
+};
+
+nice_view_spi: &spi0 {
+    status = "okay";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
+};
+
+&spi1 {
+    status = "okay";
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi1_default>;
+    pinctrl-1 = <&spi1_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio1 2 GPIO_ACTIVE_LOW>; // trackball
+
+    glidepoint: glidepoint@1 {
+        compatible = "cirque,pinnacle";
+        reg = <1>;
+        spi-max-frequency = <1000000>;  /* 1 MHz safe starting point */
+        status = "okay";
+        data-ready-gpios = <&gpio0 7 GPIO_ACTIVE_HIGH>;
+        //primary-tap-enable;
+        sensitivity = "1x";  /* Optional: adjust tracking sensitivity */
+        invert-x;
+        //swap-90; //<--error
+        sleep-mode-enable;
+    };
+};
+
+/* Add the compressor (zip_xyz) on peripheral(s) overlay */
+//#include <input/processors/xyz.dtsi>
+#include <input/processors/report_rate_limit.dtsi>
+&glidepoint_split {
+    device = <&glidepoint>;  
+    /* append XY-to-Z compressor on transmitting side */
+    //input-processors = <&zip_xyz>,<&zip_report_rate_limit 16>;
+    input-processors = <&zip_report_rate_limit 16>;
 };
 
 // &spi0 {
