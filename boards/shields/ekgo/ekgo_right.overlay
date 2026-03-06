@@ -68,37 +68,37 @@ nice_view_spi: &spi0 {
     cs-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>; 
 };
 
-&spi1 {
-    status = "okay";
-    compatible = "nordic,nrf-spim";
-    pinctrl-0 = <&spi1_default>;
-    pinctrl-1 = <&spi1_sleep>;
-    pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio1 2 GPIO_ACTIVE_LOW>; // trackball
+// &spi1 {
+//     status = "okay";
+//     compatible = "nordic,nrf-spim";
+//     pinctrl-0 = <&spi1_default>;
+//     pinctrl-1 = <&spi1_sleep>;
+//     pinctrl-names = "default", "sleep";
+//     cs-gpios = <&gpio1 2 GPIO_ACTIVE_LOW>; // trackball
 
-    glidepoint: glidepoint@0 {
-        compatible = "cirque,pinnacle";
-        reg = <0>;
-        spi-max-frequency = <1000000>;  /* 1 MHz safe starting point */
-        status = "okay";
-        data-ready-gpios = <&gpio0 7 GPIO_ACTIVE_HIGH>;
-        //primary-tap-enable;
-        sensitivity = "1x";  /* Optional: adjust tracking sensitivity */
-        invert-x;
-        //swap-90; //<--error
-        //sleep-mode-enable;
-    };
-};
+//     glidepoint: glidepoint@0 {
+//         compatible = "cirque,pinnacle";
+//         reg = <0>;
+//         spi-max-frequency = <1000000>;  /* 1 MHz safe starting point */
+//         status = "okay";
+//         data-ready-gpios = <&gpio0 7 GPIO_ACTIVE_HIGH>;
+//         //primary-tap-enable;
+//         sensitivity = "1x";  /* Optional: adjust tracking sensitivity */
+//         invert-x;
+//         //swap-90; //<--error
+//         //sleep-mode-enable;
+//     };
+// };
 
 /* Add the compressor (zip_xyz) on peripheral(s) overlay */
 //#include <input/processors/xyz.dtsi>
 //#include <input/processors/report_rate_limit.dtsi>
-&glidepoint_split {
-    device = <&glidepoint>;  
-    /* append XY-to-Z compressor on transmitting side */
-    //input-processors = <&zip_xyz>,<&zip_report_rate_limit 16>;
-    //input-processors = <&zip_report_rate_limit 16>;
-};
+// &glidepoint_split {
+//     device = <&glidepoint>;  
+//     /* append XY-to-Z compressor on transmitting side */
+//     //input-processors = <&zip_xyz>,<&zip_report_rate_limit 16>;
+//     //input-processors = <&zip_report_rate_limit 16>;
+// };
 
 // &spi0 {
 //     status = "okay";
