@@ -10,15 +10,15 @@ include:
     shield: ekgo_left nice_view
     snippet: zmk-usb-logging
   - board: eknrf
-    shield: ekgo_right
+    shield: ekgo_right nice_view
     snippet: zmk-usb-logging
 
-  - board: eknrf
-    shield: ekgo_trackball_left
-    snippet: zmk-usb-logging
-  - board: eknrf
-    shield: ekgo_trackball_right nice_view
-    snippet: zmk-usb-logging
+  # - board: eknrf
+  #   shield: ekgo_trackball_left
+  #   snippet: zmk-usb-logging
+  # - board: eknrf
+  #   shield: ekgo_trackball_right nice_view
+  #   snippet: zmk-usb-logging
 
   - board: eknrf
     shield: settings_reset
