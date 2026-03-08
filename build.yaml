@@ -6,10 +6,10 @@
 # `artifact-name` to assign a name to distinguish build outputs from each other:
 
 include:
-  - board: eknrf
+  - board: puchi_ble
     shield: ekgo_left nice_view
     snippet: zmk-usb-logging
-  - board: eknrf
+  - board: puchi_ble
     shield: ekgo_right nice_view
     snippet: zmk-usb-logging
 
